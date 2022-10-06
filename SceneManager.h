@@ -1,25 +1,14 @@
 #pragma once
 
-#include "SceneTitle.h"
-#include "SceneMain.h"
+#include "SceneBase.h"
 
 class SceneManager
 {
 public:
-	// ƒV[ƒ“‚Ìí—Ş’è‹`
-	typedef enum SceneKind
-	{
-		kSceneKindTitle,
-		kSceneKindMain,
-
-		kSceneKindNum
-	}SceneKind;
-
-public:
 	SceneManager();
 	virtual ~SceneManager();
 
-	void init(SceneKind kind = kSceneKindTitle);
+	void init();
 	void end();
 
 	void update();
@@ -27,8 +16,5 @@ public:
 
 
 private:
-	SceneKind	m_kind;
-
-	SceneTitle	m_title;
-	SceneMain	m_main;
+	SceneBase* m_pScene;
 };
